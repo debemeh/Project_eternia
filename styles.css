@@ -1,0 +1,202 @@
+/* Root Variables for Consistent Theming */
+:root {
+    --bg-color: midnightblue;
+    --text-color: #fffdd0;
+    --accent-color: midnightblue;
+    --hover-accent: blue;
+    --header-bg: #fffdd0;
+    --footer-bg: #333;
+    --footer-text: #fff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+}
+
+/* Global Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Headers and Text Styling */
+h1 {
+    color: var(--accent-color);
+}
+
+h2, h3 {
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--header-bg);
+    padding: 20px;
+    text-align: left;
+    color: var(--accent-color);
+    box-shadow: 0 4px 8px var(--shadow-dark);
+}
+
+/* Navigation */
+nav {
+    margin: 20px 0;
+    text-align: center;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+    color: var(--hover-accent);
+    outline: none;
+}
+
+/* Section Styling */
+section {
+    padding: 20px;
+    margin: 20px auto;
+    background-color: var(--bg-color);
+    border: 1px solid var(--text-color);
+    border-radius: 8px;
+    max-width: 800px;
+    box-shadow: 0 4px 8px var(--shadow-dark);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin: auto;
+    max-width: 600px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover,
+.gallery img:focus {
+    transform: scale(1.2);
+    box-shadow: 0 6px 12px var(--shadow-dark);
+    outline: none;
+}
+
+/* Carousel Styling */
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow-dark);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-item img:hover,
+.carousel-item img:focus {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px var(--shadow-dark);
+    outline: none;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--accent-color);
+    transform: scale(1.1);
+    outline: none;
+}
+
+.carousel-button.left {
+    left: 10px;
+}
+
+.carousel-button.right {
+    right: 10px;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .carousel {
+        max-width: 100%;
+    }
+
+    .carousel-item img:hover {
+        transform: none; /* Disable hover zoom for mobile */
+    }
+}
